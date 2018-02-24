@@ -1157,6 +1157,8 @@ pre .javascript .function {
   padding: 9px 10px;
   background: transparent;
   border: none;
+  position: relative;
+  right: 80px;
 }
 @media (max-width: 767px) {
   .site-nav {
