@@ -265,7 +265,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/23/Install tellform localbg/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/02/Install tellform localbg/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="yy">
@@ -284,7 +284,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/02/23/Install tellform localbg/" itemprop="url">Install tellform localbg</a></h1>
+                <a class="post-title-link" href="/2018/03/02/Install tellform localbg/" itemprop="url">Install tellform localbg</a></h1>
         
 
         <div class="post-meta">
@@ -296,7 +296,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-23T10:14:54+01:00">2018-02-23</time>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-02T14:51:26+01:00">2018-03-02</time>
             
 
             
@@ -305,6 +305,24 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/ptrans/" itemprop="url" rel="index"><span itemprop="name">ptrans</span></a></span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -334,75 +352,17 @@
 
       
         
-          
-            <p>标签（空格分隔）： ptrans</p>
-<hr>
-<h1 id="Preparation"><a href="#Preparation" class="headerlink" title="Préparation"></a>Préparation</h1><p>Système d’exploitation: Window10 Professional</p>
+          <h2 id="标签：-ptrans"><a href="#标签：-ptrans" class="headerlink" title="标签： ptrans"></a>标签： ptrans</h2><h1 id="Preparation"><a href="#Preparation" class="headerlink" title="Préparation"></a>Préparation</h1><p>Système d’exploitation: Window10 Professional</p>
 <blockquote>
 <p>Tools:<br><strong>Redis</strong> installed and running at 127.0.0.1:6379<br><strong>MongoDb</strong> installed and running at 127.0.0.1:27017<br><strong>nodeJS</strong> installed</p>
 </blockquote>
-<p>Liens de téléchargement :<br><a href="https://github.com/MicrosoftArchive/redis/releases" target="_blank" rel="noopener">Redis: https://github.com/MicrosoftArchive/redis/releases</a><br><a href="https://nodejs.org/en/download/" target="_blank" rel="noopener">nodeJS: https://nodejs.org/en/download/</a><br><a href="https://www.mongodb.com/download-center#community" target="_blank" rel="noopener">mongoDB: https://www.mongodb.com/download-center#community</a></p>
-<p>Attention:</p>
-<ol>
-<li>Il n’y a pas de version pour Windows sur le site officiel de Redis, mais MS a développé une version sur les fenêtres. Donc il faut la télécharger sur github.</li>
-<li>Pour moi, la fenêtre de la console cmd ne peut pas être fermée lorsque la connection est faite depuis BD.</li>
-</ol>
-<h3 id="Configuration-du-MongoDB"><a href="#Configuration-du-MongoDB" class="headerlink" title="Configuration du MongoDB"></a>Configuration du MongoDB</h3><p>MongoDB se stocke dans un répertoire inclus dans le répertoire db, cependant ce répertoire de données ne sera pas créé automatiquement, nous devons donc le créer une fois l’installation terminée. Veuillez noter que le répertoire de données doit être placé dans le répertoire racine: Par exemple, c:\ ou d:\ etc.</p>
-<p>En supposant que mongodb soit installé sur le lecteur C, nous pouvons créer le répertoire db en utilisant le code suivant.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">c:\&gt;cd c:\</span><br><span class="line">c:\&gt;mkdir data</span><br><span class="line">c:\&gt;cd data</span><br><span class="line">c:\data&gt;mkdir db</span><br><span class="line">c:\data&gt;cd db</span><br><span class="line">c:\data\db&gt;</span><br></pre></td></tr></table></figure></p>
-<ul>
-<li><p>Lancer MangoDB server<br>Lancer le fichier mongod.exe qui est dans le dossier bin du répertoire MongoDB.<br>Ou utiliser cmd :</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C:\mongodb\bin\mongod --dbpath c:\data\db</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Lancer MangoDB client et connecter le serveur<br>Lancer le fichier mongo.exe qui est dans le dossier bin du répertoire MongoDB.<br>Ou utiliser cmd :</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C:\mongodb\bin\mongo.exe</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>En cas de succès, cmd de mongod.exe(server) affiche le message suivant:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">2017-12-10T21:46:03.083+0100 I FTDC     [initandlisten] Initializing full-time diagnostic data capture with directory &apos;C:/data/db/diagnostic.data&apos;</span><br><span class="line">2017-12-10T21:46:03.087+0100 I NETWORK  [initandlisten] waiting for connections on port 27017</span><br><span class="line">2017-12-10T21:47:51.161+0100 I NETWORK  [listener] connection accepted from 127.0.0.1:54252 #1 (1 connection now open)</span><br><span class="line">2017-12-10T21:47:51.179+0100 I NETWORK  [conn1] received client metadata from 127.0.0.1:54252 conn: &#123; application: &#123; name: &quot;MongoDB Shell&quot; &#125;, driver: &#123; name: &quot;MongoDB Internal Client&quot;, version: &quot;3.6.0&quot; &#125;, os: &#123; type: &quot;Windows&quot;, name: &quot;Microsoft Windows 10&quot;, architecture: &quot;x86_64&quot;, version: &quot;10.0 (build 16299)&quot; &#125; &#125;</span><br></pre></td></tr></table></figure></p>
-<p>cmd de mongo.exe(client) affiche le message suivant:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">C:\Program Files\MongoDB\Server\3.6\bin&gt;mongo.exe</span><br><span class="line">MongoDB shell version v3.6.0</span><br><span class="line">connecting to: mongodb://127.0.0.1:27017</span><br><span class="line">MongoDB server version: 3.6.0</span><br></pre></td></tr></table></figure></p>
-<h1 id="Installation-de-tellform-Reference-1"><a href="#Installation-de-tellform-Reference-1" class="headerlink" title="Installation de tellform (Référence[1])"></a>Installation de tellform (Référence[1])</h1><h2 id="1-Installation-des-paquets"><a href="#1-Installation-des-paquets" class="headerlink" title="1.Installation des paquets"></a>1.Installation des paquets</h2><p>Pour copier de Github, utiliser git clone<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">\\ouvrez le chemin</span><br><span class="line">cd ...</span><br><span class="line">git clone https://github.com/tellform/tellform.git</span><br></pre></td></tr></table></figure></p>
-<p>Ouvrir le chemin que on copie<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd tellform</span><br></pre></td></tr></table></figure></p>
-<p>Installer les dépendances<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm bower install -g</span><br><span class="line">npm install</span><br><span class="line">bower install</span><br></pre></td></tr></table></figure></p>
-<p>PS: Pour moi, il y a le problème: <strong>Cannot find module ‘internal/util/types’</strong> quand j’installe npm. Si vous rencontrez le même problème, aller à la fin de l’article.  </p>
-<p>Installer l’environnement<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install grunt -g</span><br><span class="line">grunt build</span><br></pre></td></tr></table></figure></p>
-<h2 id="2-Initialisation"><a href="#2-Initialisation" class="headerlink" title="2. Initialisation"></a>2. Initialisation</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run init</span><br></pre></td></tr></table></figure>
-<p>PS: J’ai le problème: <strong>Cannot find module ‘fs-extra’</strong>. Donc je lance la commande suivante:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm isntall fs-extra</span><br></pre></td></tr></table></figure></p>
-<p>Puis j’initialise à nouveau:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run init</span><br></pre></td></tr></table></figure></p>
-<p>En cas de succès, le message suivant s’affiche:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Hi, welcome to Tellform Setup</span><br><span class="line">....</span><br></pre></td></tr></table></figure></p>
-<p>Ensuite, il vous est demandé de définir quelques informations.<br>En cas de succès, le message suivant s’affiche:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Successfully created .env file</span><br><span class="line">Successfully created user</span><br><span class="line">Have fun using Tellform!</span><br></pre></td></tr></table></figure></p>
-<h2 id="3-Demarrer-le-serveur-local"><a href="#3-Demarrer-le-serveur-local" class="headerlink" title="3. Démarrer le serveur local"></a>3. Démarrer le serveur local</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node server</span><br></pre></td></tr></table></figure>
-<p>En cas de succès, le message suivant s’affiche:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Environment:                    production</span><br><span class="line">Port:                           3000</span><br><span class="line">Database:                       mongodb://127.0.0.1/mean</span><br></pre></td></tr></table></figure></p>
-<p>N’oublie pas de lancer le serveur mongoDB puis le client.<br>À la fin, votre application devrait fonctionner sur le port 3000, donc dans votre navigateur allez simplement à <a href="http://localhost:3000" target="_blank" rel="noopener">http://localhost:3000</a> .</p>
-<h1 id="Les-problemes-rencontres-et-leur-resolution"><a href="#Les-problemes-rencontres-et-leur-resolution" class="headerlink" title="Les problèmes rencontrés et leur résolution"></a>Les problèmes rencontrés et leur résolution</h1><p>(Cette partie va être écrite en anglais pour une explication plus claire.)</p>
-<h2 id="npm-install-Reference-2"><a href="#npm-install-Reference-2" class="headerlink" title="npm install (Référence[2])"></a>npm install (Référence[2])</h2><blockquote>
-<p>Error: <strong>Cannot find module ‘internal/util/types’</strong>  </p>
-</blockquote>
-<p>The reason seems to be the compatibility of nodeJS module library. I reinstalled nodeJS and fixed it by getting an older version of nodeJS.</p>
-<blockquote>
-<p>step:</p>
-</blockquote>
-<ol>
-<li>remove nodeJS (8.9.3)</li>
-<li>reinstall nodeJS(6.2.2)</li>
-<li>update npm (command: npm update)</li>
-<li>restart <strong>npm install</strong></li>
-</ol>
-<p>We will need to have in mind that we need an older version during the initialization that’s why I restarted ‘node-v8.9.3’ to update nodeJS when <strong>npm install</strong> had finished.</p>
-<h2 id="npm-run-init"><a href="#npm-run-init" class="headerlink" title="npm run init"></a>npm run init</h2><blockquote>
-<p>Error: Cannot find module ‘fs-extra’</p>
-</blockquote>
-<p>I solved it by <strong>npm install fs-extra</strong> and <strong>update again nodeJS version</strong>.</p>
-<h2 id="MongoDB-connection-error"><a href="#MongoDB-connection-error" class="headerlink" title="MongoDB connection error"></a>MongoDB connection error</h2><blockquote>
-<p>MongoDB connection error: MongoError: connect ECONNREFUSED 127.0.0.1:27017</p>
-</blockquote>
-<p>I forgot to connect mongoDB. Once it was connected, the problem was solved.</p>
-<h2 id="Webpage-loading-for-a-long-time-but-not-loaded"><a href="#Webpage-loading-for-a-long-time-but-not-loaded" class="headerlink" title="Webpage loading for a long time but not loaded."></a>Webpage loading for a long time but not loaded.</h2><p>It appears when the server is connected but the client is down, solved simply by connecting the client.</p>
-<p>#Référence</p>
-<ol>
-<li>Free Opensource Alternative to TypeForm or Google Forms:<br><a href="https://github.com/tellform/tellform/tree/28614fbab4207db13eab7dc4d021ddcf0035cfbb" target="_blank" rel="noopener">https://github.com/tellform/tellform/tree/28614fbab4207db13eab7dc4d021ddcf0035cfbb</a></li>
-<li>Error: Cannot find module ‘internal/util/types’ #1124:<br><a href="https://github.com/remy/nodemon/issues/1124" target="_blank" rel="noopener">https://github.com/remy/nodemon/issues/1124</a>  </li>
-</ol>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/03/02/Install tellform localbg/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -454,7 +414,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/22/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/02/hello-world/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="yy">
@@ -473,7 +433,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/02/22/hello-world/" itemprop="url">Hello World</a></h1>
+                <a class="post-title-link" href="/2018/03/02/hello-world/" itemprop="url">Hello World</a></h1>
         
 
         <div class="post-meta">
@@ -485,7 +445,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-22T17:10:32+01:00">2018-02-22</time>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-02T14:39:08+01:00">2018-03-02</time>
             
 
             
@@ -523,18 +483,16 @@
 
       
         
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+          <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-          
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a><br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/03/02/hello-world/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -621,7 +579,35 @@
               
 
               
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                    <span class="site-state-item-count">1</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
 
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
               
             </nav>
           
@@ -694,7 +680,7 @@
 <div class="theme-info">
   <div class="powered-by"></div>
   <span class="post-meta-divider">|</span>
-  <span class="post-count">博客全站共1,021字</span>
+  <span class="post-count">博客全站共1,017字</span>
 </div>
 
         
