@@ -100,26 +100,29 @@
 
 
   
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Hadoop," />
 
 
-<meta name="description" content="keep on going &amp; never turn back">
-<meta property="og:type" content="website">
-<meta property="og:title" content="categories">
-<meta property="og:url" content="http://yoursite.com/categories/index.html">
+<meta name="description" content="最近在学习HDFS的源码，源码规模本身比较大，学了也容易忘记，于是对于每一个小部分的功能都用Visio整理了一结构图，方便以后有用时使用">
+<meta name="keywords" content="Hadoop">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【Hadoop】一图学习HDFS源码结构系列——内存存储Lazy persist">
+<meta property="og:url" content="http://yoursite.com/2018/03/13/【Hadoop】HDFS1/index.html">
 <meta property="og:site_name" content="红苕">
-<meta property="og:description" content="keep on going &amp; never turn back">
-<meta property="og:updated_time" content="2018-03-02T13:49:32.180Z">
+<meta property="og:description" content="最近在学习HDFS的源码，源码规模本身比较大，学了也容易忘记，于是对于每一个小部分的功能都用Visio整理了一结构图，方便以后有用时使用">
+<meta property="og:image" content="http://img.blog.csdn.net/20180311223800121?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvZDUyMTAwMDEyMQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:updated_time" content="2018-03-13T08:18:06.215Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="categories">
-<meta name="twitter:description" content="keep on going &amp; never turn back">
+<meta name="twitter:title" content="【Hadoop】一图学习HDFS源码结构系列——内存存储Lazy persist">
+<meta name="twitter:description" content="最近在学习HDFS的源码，源码规模本身比较大，学了也容易忘记，于是对于每一个小部分的功能都用Visio整理了一结构图，方便以后有用时使用">
+<meta name="twitter:image" content="http://img.blog.csdn.net/20180311223800121?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvZDUyMTAwMDEyMQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/categories/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/03/13/【Hadoop】HDFS1/"/>
 
 
 
@@ -128,7 +131,7 @@
     sidebar: "",
   };
 </script>
-  <title>categories | 红苕</title>
+  <title>【Hadoop】一图学习HDFS源码结构系列——内存存储Lazy persist | 红苕</title>
   
 
 
@@ -263,60 +266,191 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/13/【Hadoop】HDFS1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yy">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="红苕">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-<h1 class="post-title" itemprop="name headline">categories</h1>
-
-<div class="post-meta">
-  
-  
-
-
-
-</div>
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <div class="category-all-page">
-            <div class="category-all-title">
-                
-                
-                  
-                    
-                  
-                
-                  
-                    
-                  
-                
-                2 categories in total
-            </div>
-            <div class="category-all">
-              <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/bigData/">bigData</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ptrans/">ptrans</a><span class="category-list-count">1</span></li></ul>
-            </div>
-          </div>
+          <h1 class="post-title" itemprop="name headline">【Hadoop】一图学习HDFS源码结构系列——内存存储Lazy persist</h1>
         
-      </div>
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-13T09:18:06+01:00">2018-03-13</time>
+            
+
+            
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/bigData/" itemprop="url" rel="index"><span itemprop="name">bigData</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+           
+                <div class="post-tags">
+                  
+                    <a href="/tags/Hadoop/" rel="tag"><i class="fa fa-tag"></i> Hadoop</a>
+                  
+                </div>
+           
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <p>最近在学习HDFS的源码，源码规模本身比较大，学了也容易忘记，于是对于每一个小部分的功能都用Visio整理了一结构图，方便以后有用时使用</p>
+<a id="more"></a>
+<p><img src="http://img.blog.csdn.net/20180311223800121?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvZDUyMTAwMDEyMQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="Lazy persist"></p>
+<p>从三个方面理解Lazy persist功能</p>
+<p>##异步持久化算法<br>我们知道，内存空间一定是有限的，而且掉电会丢失，不可能把所有的数据都存放到内存里面，所以HDFS会不断地把存放在内存里的数据进行持久化，保存到永久磁盘里。那么这里就涉及数据块的选择算法了，HDFS的做法是在内存存储新数据的同时，持久化距离当前时刻最远（存储时间最早）的数据。</p>
+<p>##设置内存存储<br>设置内存存储有3中方法</p>
+<ol>
+<li>在命令行中设置：命令行 hdfs storagepolicies -setStoragePolicy -path <path></path> -policy LAZY_PERSIST</li>
+<li>create文件方法，带上参数CreateFlag.LAZY_PERSIST，其调用过程，可看DFSClint#Create with CreateFlag</li>
+<li>调用FileSystem的setStoragePolicy方法，如： fs.setStoragePolicy(path, “LAZY_PERSIST”);</li>
+</ol>
+<p>##LAZY_PERSIST内存存储的代码实现<br>最后一部分也是想说的最复杂的一部分<br>这部分的功能实现主要涉及一个结构体：FsDatasetImpl，它是一个管理DataNode所有磁盘读写的管家<br>而这个结构体下面包括了如下三个实体对象：</p>
+<ul>
+<li>RamDiskReplicaLruTracker， 副本块跟踪类，此类中维护了所有已持久化、未持久化的副本以及总副本数据信息</li>
+<li>LazyWriter，此线程会不断地从数据块列表中取出数据块，将数据块加入到异步持久化线程池</li>
+<li>RamDiskAsyncLazyPersistService，异步持久化线程服务，针对每一个磁盘块设置一个对应的线程池<br>三者的关系请看图的右上角部分</li>
+</ul>
+<p>下面逐个进行解析</p>
+<p>###RamDiskReplicaLruTracker<br>该结构体维护了三个对象</p>
+<ul>
+<li>replicaMapsblockpool，Id对副本信息的映射图</li>
+<li>replicaMaps，blockpool Id对副本信息的映射图</li>
+<li>replicasPersisted，已持久化写入磁盘的映射图</li>
+</ul>
+<p>###LazyWriter<br>此线程会不断地从数据块列表中取出数据块，将数据块加入到异步持久化线程池，就是一个run方法，不断地从RamDiskReplicaLruTracker中取出待持久化的块，提交写入磁盘的命令</p>
+<p>###RamDiskAsyncLazyPersistService<br>异步持久化线程服务，针对每一个磁盘块设置一个对应的线程池，这是真正从内存写到磁盘的过程。</p>
+<p>参考：《深度剖析Hadoop HDFS》</p>
+
       
     </div>
+
     
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/03/02/Install tellform localbg/" rel="next" title="Install tellform localbg">
+                <i class="fa fa-chevron-left"></i> Install tellform localbg
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
 
 
 
-    
-    
-    
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
