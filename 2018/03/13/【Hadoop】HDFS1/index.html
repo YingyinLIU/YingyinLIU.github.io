@@ -41,6 +41,10 @@
 
 
 
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
 
 
 
@@ -78,7 +82,7 @@
     scheme: 'Mist',
     version: '6.0.4',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
-    fancybox: false,
+    fancybox: true,
     fastclick: false,
     lazyload: false,
     tabs: true,
@@ -111,7 +115,7 @@
 <meta property="og:site_name" content="红苕">
 <meta property="og:description" content="最近在学习HDFS的源码，源码规模本身比较大，学了也容易忘记，于是对于每一个小部分的功能都用Visio整理了一结构图，方便以后有用时使用">
 <meta property="og:image" content="http://img.blog.csdn.net/20180311223800121?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvZDUyMTAwMDEyMQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
-<meta property="og:updated_time" content="2018-03-13T12:23:35.625Z">
+<meta property="og:updated_time" content="2018-03-14T15:17:29.370Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【Hadoop】一图学习HDFS源码结构系列——内存存储Lazy persist">
 <meta name="twitter:description" content="最近在学习HDFS的源码，源码规模本身比较大，学了也容易忘记，于是对于每一个小部分的功能都用Visio整理了一结构图，方便以后有用时使用">
@@ -371,8 +375,8 @@
 
       
         <p>最近在学习HDFS的源码，源码规模本身比较大，学了也容易忘记，于是对于每一个小部分的功能都用Visio整理了一结构图，方便以后有用时使用</p>
-<a id="more"></a>
 <p><img src="http://img.blog.csdn.net/20180311223800121?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvZDUyMTAwMDEyMQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="Lazy persist"></p>
+<a id="more"></a>
 <p>从三个方面理解Lazy persist功能</p>
 <h2 id="异步持久化算法"><a href="#异步持久化算法" class="headerlink" title="异步持久化算法"></a>异步持久化算法</h2><p>我们知道，内存空间一定是有限的，而且掉电会丢失，不可能把所有的数据都存放到内存里面，所以HDFS会不断地把存放在内存里的数据进行持久化，保存到永久磁盘里。那么这里就涉及数据块的选择算法了，HDFS的做法是在内存存储新数据的同时，持久化距离当前时刻最远（存储时间最早）的数据。</p>
 <h2 id="设置内存存储"><a href="#设置内存存储" class="headerlink" title="设置内存存储"></a>设置内存存储</h2><p>设置内存存储有3中方法</p>
@@ -679,6 +683,8 @@
 
 
 
+  
+
 
 
   
@@ -708,6 +714,11 @@
   
   
     <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
   
 
   
