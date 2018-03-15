@@ -115,7 +115,7 @@
 <meta property="og:site_name" content="红苕">
 <meta property="og:description" content="最近准备在准备公司里的底层软件技能鉴定，作为每次面试笔试必考的坑，感觉很有必要好好复习一遍。常见的有这几种坑： 指针与数组这里要提到一种层层解析的方法。1、先从最简单的开始1int *pf;">
 <meta property="og:image" content="https://gss2.bdstatic.com/-fo3dSag_xI4khGkpoWK1HF6hhy/baike/c0=baike80,5,5,80,26/sign=59a3e1017d3e6709aa0d4dad5aaef458/63d9f2d3572c11df57c9a205612762d0f703c2f8.jpg">
-<meta property="og:updated_time" content="2018-03-14T15:32:25.243Z">
+<meta property="og:updated_time" content="2018-03-15T10:10:57.754Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C里符号优先级的那些坑">
 <meta name="twitter:description" content="最近准备在准备公司里的底层软件技能鉴定，作为每次面试笔试必考的坑，感觉很有必要好好复习一遍。常见的有这几种坑： 指针与数组这里要提到一种层层解析的方法。1、先从最简单的开始1int *pf;">
@@ -313,7 +313,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-14T16:14:41+01:00">2018-03-14</time>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-14T21:02:15+01:00">2018-03-14</time>
             
 
             
@@ -396,11 +396,11 @@
 <p>同理<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> (*pf)[<span class="number">3</span>];</span><br></pre></td></tr></table></figure></p>
 <p>这个例子可以这么理解</p>
 <ul>
-<li><strong>(<em>pf)进行偏移0/1/2个单位运算后仍然是int类型 –&gt; (</em>pf)就是大小为3的int数组</strong></li>
+<li><strong>(*pf)进行偏移0/1/2个单位运算后仍然是int类型 –&gt; (*pf)就是大小为3的int数组</strong></li>
 <li><strong>pf解地址后是大小为3的int数组 –&gt; pf就是指向大小为3的int数组的数组指针</strong></li>
 </ul>
-<h2 id="函数声明"><a href="#函数声明" class="headerlink" title="函数声明"></a>函数声明</h2><p>在有了上面的基础后，现在把表达式再弄复杂点，我们要声明函数了。<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> *<span class="title">g</span><span class="params">()</span></span>;</span><br></pre></td></tr></table></figure></p>
-<p>函数最基本的特征就是有“()”。<br>“()”优先级与”[]“在同一级别，都比”*“高。<br>所以同样的方法</p>
+<p>##函数声明<br>在有了上面的基础后，现在把表达式再弄复杂点，我们要声明函数了。<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> *<span class="title">g</span><span class="params">()</span></span>;</span><br></pre></td></tr></table></figure></p>
+<p>函数最基本的特征就是有“()”。<br>“()”优先级与“[]”在同一级别，都比“*”高。<br>所以同样的方法</p>
 <ul>
 <li><strong>g()解地址后是int类型 –&gt; g()就是指向int类型的指针</strong></li>
 <li><strong>g函数执行后结果为指向int类型的指针 –&gt; g就是返回指向int类型指针的函数</strong><br>是不是很简单？</li>
@@ -408,7 +408,7 @@
 <p>那么我们继续<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> (*g)();</span><br></pre></td></tr></table></figure></p>
 <p>继续分析</p>
 <ul>
-<li><strong>(<em>g)函数执行结果为int类型 –&gt; (</em>g)就是返回int类型的函数</strong></li>
+<li><strong>(*g)函数执行结果为int类型 –&gt; (*g)就是返回int类型的函数</strong></li>
 <li><strong>g解地址后是返回int类型的函数 –&gt; g就是指向返回int类型的函数的函数指针</strong></li>
 </ul>
 <p>是不是感觉有点boring了？<br>最后，来个复杂点的<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(((<span class="keyword">void</span>*)())<span class="number">0</span>)();</span><br></pre></td></tr></table></figure></p>
@@ -599,7 +599,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#指针与数组"><span class="nav-number">1.</span> <span class="nav-text">指针与数组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数声明"><span class="nav-number">2.</span> <span class="nav-text">函数声明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#附：C语言运算符优先级表"><span class="nav-number">3.</span> <span class="nav-text">附：C语言运算符优先级表</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#指针与数组"><span class="nav-number">1.</span> <span class="nav-text">指针与数组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#附：C语言运算符优先级表"><span class="nav-number">2.</span> <span class="nav-text">附：C语言运算符优先级表</span></a></li></ol></div>
             
 
           </div>
